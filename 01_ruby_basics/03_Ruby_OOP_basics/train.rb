@@ -2,7 +2,6 @@ class Train
   attr_accessor :speed, :num, :type
   attr_reader :route
 
-
   def initialize(num, type, wagon_quant)
     @num = num
     @type = type
@@ -37,7 +36,7 @@ class Train
   end
 
   def next_station
-    route.stations[@station_index + 1] if @station_index < route.stations.size - 1
+    route.stations[@station_index + 1]
   end
 
   def prev_station
@@ -46,6 +45,7 @@ class Train
 
   def move_next
     return unless next_station
+
     current_station.depart(self)
     next_station.arrive(self)
     @station_index += 1
@@ -53,6 +53,7 @@ class Train
 
   def move_back
     return unless prev_station
+
     current_station.depart(self)
     prev_station.arrive(self)
     @station_index -= 1

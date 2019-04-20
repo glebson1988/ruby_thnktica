@@ -16,6 +16,6 @@ class Station
   end
 
   def depart(train)
-    trains.delete(train) if trains.include?(train)
+    trains.delete(train)
   end
 end
