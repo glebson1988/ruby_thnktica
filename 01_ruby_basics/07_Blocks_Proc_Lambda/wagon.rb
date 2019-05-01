@@ -1,8 +1,11 @@
 class Wagon
   include Manufacturer
 
+  NOT_ENOUGH_SPACE = 'Недостаточно места.'
+
   attr_reader :num, :space
   attr_accessor :reserved_space
+
   @@wagon_num = 0
 
   def initialize(space)
@@ -16,6 +19,7 @@ class Wagon
   end
 
   def reserve_space(amount)
+    raise NOT_ENOUGH_SPACE if amount > free_space
     self.reserved_space += amount
   end
 

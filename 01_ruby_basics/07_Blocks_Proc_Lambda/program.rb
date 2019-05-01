@@ -212,6 +212,8 @@ class Program
   def choose_passngr_wagon(wagon)
     wagon.reserve_space
     puts "Зарезервировано место в вагоне #{wagon.num}"
+  rescue StandardError => e
+    puts "Ошибка: #{e.message}"
   end
 
   def choose_cargo_wagon(wagon)
@@ -219,6 +221,8 @@ class Program
     amount = gets.chomp.to_f
     wagon.reserve_space(amount)
     puts "В вагоне #{wagon.num} зарезервировано #{amount}"
+  rescue StandardError => e
+    puts "Ошибка: #{e.message}"
   end
 
   def show_stations_trains
