@@ -1,0 +1,14 @@
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/ClassLength:
+  Max: 215
+
+Style/ClassVars:
+  Exclude:
+  - 'train.rb'
+  - 'station.rb'
+  - 'wagon.rb'
