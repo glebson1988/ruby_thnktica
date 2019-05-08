@@ -1,4 +1,7 @@
 class CargoTrain < Train
+  validate :num, :presence
+  validate :num, :format, NUMBER_FORMAT
+
   def initialize(num)
     @type = 'грузовой'
     super

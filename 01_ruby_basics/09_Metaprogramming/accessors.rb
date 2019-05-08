@@ -13,9 +13,10 @@ module Accessors
           instance_variable_get("@#{name}_history")
         end
         define_method("#{name}=") do |value|
+          prev_val = instance_variable_get("@#{name}")
           instance_variable_set("@#{name}", value)
           history_values = instance_variable_get("@#{name}_history") || []
-          instance_variable_set("@#{name}_history", history_values << value)
+          instance_variable_set("@#{name}_history", history_values << prev_val)
         end
       end
     end
